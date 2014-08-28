@@ -503,6 +503,8 @@ ss_check_request(ss_event_t *ev)
             request->res_type = 4;
         else if (uri->data[uri->len-3] == 'g' && uri->data[uri->len-2] == 'i' && uri->data[uri->len-1] == 'f')
             request->res_type = 5;
+        else if (uri->data[uri->len-3] == 'c' && uri->data[uri->len-2] == 's' && uri->data[uri->len-1] == 's')
+            request->res_type = 1;
     }
     
     open_uri = (char *)ss_alloc_from_pool(request->pool, wwwpath.len + uri->len + 1);
@@ -512,7 +514,7 @@ ss_check_request(ss_event_t *ev)
     }
     memcpy(open_uri, wwwpath.data, wwwpath.len);
     memcpy(open_uri + wwwpath.len, uri->data, uri->len);
-    open_uri[wwwpath.len + uri->len + 1] = '\0';
+    open_uri[wwwpath.len + uri->len] = '\0';
     
     request->open_uri = open_uri;//add later
 
