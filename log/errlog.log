@@ -1,0 +1,70 @@
+SS_LOG:2014-08-28 16:55:05 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 16:55:05 init file start
+SS_LOG:2014-08-28 16:55:51 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 16:55:51 init file start
+SS_LOG:2014-08-28 16:55:51 init file start
+SS_LOG:2014-08-28 16:58:13 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 16:58:13 init file start
+SS_LOG:2014-08-28 17:17:30 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:17:30 init file start
+SS_LOG:2014-08-28 17:24:17 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:24:17 init file start
+SS_LOG:2014-08-28 17:24:17 init file start
+SS_LOG:2014-08-28 17:24:17 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:24:17 init file start
+SS_LOG:2014-08-28 17:24:17 init file start
+SS_LOG:2014-08-28 17:24:17 send data error:Bad address
+SS_LOG:2014-08-28 17:24:17 close on fd:7 because 128
+SS_LOG:2014-08-28 17:24:18 file not exists:./www/favicon.ico
+SS_LOG:2014-08-28 17:24:18 send data error:Bad address
+SS_LOG:2014-08-28 17:24:18 close on fd:7 because 128
+SS_LOG:2014-08-28 17:24:18 file not exists:./www/favicon.ico
+SS_LOG:2014-08-28 17:24:18 send data error:Bad address
+SS_LOG:2014-08-28 17:24:18 close on fd:7 because 128
+SS_LOG:2014-08-28 17:31:35 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:31:35 init file start
+SS_LOG:2014-08-28 17:31:35 init file start
+SS_LOG:2014-08-28 17:31:35 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:31:35 init file start
+SS_LOG:2014-08-28 17:31:35 init file start
+SS_LOG:2014-08-28 17:31:35 send data error:Bad address
+SS_LOG:2014-08-28 17:31:35 close on fd:7 because 128
+SS_LOG:2014-08-28 17:33:00 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:33:00 init file start
+SS_LOG:2014-08-28 17:33:00 init file start
+SS_LOG:2014-08-28 17:33:00 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:33:00 init file start
+SS_LOG:2014-08-28 17:33:00 init file start
+SS_LOG:2014-08-28 17:33:00 send data error:Bad address
+SS_LOG:2014-08-28 17:33:00 close on fd:7 because 128
+SS_LOG:2014-08-28 17:38:44 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:38:44 init file start
+SS_LOG:2014-08-28 17:38:44 init file start
+SS_LOG:2014-08-28 17:38:44 ss_http_prepare_send_data SS_HTTP_OK start:./www/index.html
+SS_LOG:2014-08-28 17:38:44 init file start
+SS_LOG:2014-08-28 17:38:44 init file start
+SS_LOG:2014-08-28 17:38:44 send data error:Bad address
+SS_LOG:2014-08-28 17:38:44 close on fd:7 because 128
+SS_LOG:2014-08-28 17:55:21 close on fd:7 because 128
+SS_LOG:2014-08-28 18:00:54 close on fd:7 because 128
+SS_LOG:2014-08-28 18:00:54 file not exists:./www/favicon.ico
+SS_LOG:2014-08-28 18:00:54 close on fd:7 because 128
+SS_LOG:2014-08-28 18:01:01 file not exists:./www/index.htmlf
+SS_LOG:2014-08-28 18:01:01 close on fd:7 because 128
+SS_LOG:2014-08-28 18:01:22 file not exists:./www/index.htmlf
+SS_LOG:2014-08-28 18:01:22 close on fd:7 because 128
+SS_LOG:2014-08-28 18:04:23 file not exists:./www/index.htmlf
+SS_LOG:2014-08-28 18:04:23 close on fd:7 because 128
+SS_LOG:2014-08-28 18:04:37 file not exists:./www/index.htmlf
+SS_LOG:2014-08-28 18:04:37 close on fd:7 because 128
+SS_LOG:2014-08-28 18:16:41 uri:/ uri_len:1
+SS_LOG:2014-08-28 18:35:48 uri:/ uri_len:1 -2
+SS_LOG:2014-08-28 18:41:21 close on fd:7 because 128
+SS_LOG:2014-08-28 18:50:56 close on fd:7 because 128
+SS_LOG:2014-08-28 18:51:01 close on fd:7 because 128
+SS_LOG:2014-08-28 18:51:20 close on fd:7 because 128
+SS_LOG:2014-08-28 18:52:49 close on fd:7 because 128
+SS_LOG:2014-08-28 18:53:49 file not exists:./www/main.c/
+SS_LOG:2014-08-28 18:53:49 close on fd:7 because 128
+SS_LOG:2014-08-28 18:53:56 file not exists:./www/main.c/
+SS_LOG:2014-08-28 18:53:56 close on fd:7 because 128

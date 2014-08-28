@@ -1,13 +1,15 @@
 #include "include/ss_core.h"
 
-#define SS_ERRLOG_NAME  "log/errlog.log"
-#define SS_CONFIG_FILE  "conf/stuppd.conf"
+#define SS_ERRLOG_NAME      "log/errlog.log"
+#define SS_CONFIG_FILE      "conf/stuppd.conf"
+#define SS_DEFAULT_WWWPATH  "www"
 
 //global variable
 ss_log_t    errlog;
 ss_file_t   logfile;
 ss_map_t    *fileconf;
 ss_listen_t listening;
+ss_str_t    wwwpath;
 
 //static global variable
 static char *workdir;
@@ -16,6 +18,7 @@ static char *workdir;
 static ss_int_t ss_get_dir(char *arg, char **workdirp);
 static ss_int_t ss_log_init(); 
 static ss_int_t ss_parse_config();//process the config from config file
+static ss_int_t ss_check_config();//check if the config is correct and merge the config
 
 int main(int argc, char *argv[])
 {
@@ -39,7 +42,10 @@ int main(int argc, char *argv[])
         ss_stderr_log("ss_parse_config() occurs error\n");
         return -1;
     }
-
+    if (ss_check_config() == -1) {
+        /*ss_stderr_log("ss_check_config() error\n");*/
+        return -1;
+    }
     //step 4: socket process,
         //find the port that want to listen
     tmp = fileconf;
@@ -225,5 +231,79 @@ ss_get_dir(char *arg, char **dirnamep)
     
     free(name);
 
+    return 0;
+}
+
+static ss_int_t
+ss_check_config()
+{
+    ss_map_t    *tmp, filemap;
+    char        *ok[5]; 
+    ss_int_t    i, plen, wlen;
+
+    memset(ok, (char)0, sizeof(ok));
+    filemap.next = fileconf;
+    tmp = &filemap;
+//the fileconf only includes "wwwpath" "listen" "403" "404" "500",they can be identified by the third byte       
+    while(tmp->next) {
+        tmp = tmp->next;
+        switch (tmp->key['2']) {
+            case 'w':
+                if (access(tmp->value, R_OK | X_OK) == -1) {
+                    ss_stderr_log("not access to allow %s or not exists", tmp->value);
+                    return -1;
+                }
+                ok[0] = tmp->value;
+                break;
+            case 's':
+                if (atoi(tmp->value) <= 0) {
+                    ss_stderr_log("listen port:%d is not allowed", atoi(tmp->value));
+                    return -1;
+                }
+                ok[1] = tmp->value;
+                break;
+            case '3':
+                if (access(tmp->value, R_OK) == -1) {
+                    ss_stderr_log("not access to 403 error file or not exists:%s\n", tmp->value);
+                    return -1;
+                }
+                ok[2] = tmp->value;
+                break;
+            case '4':
+                if (access(tmp->value, R_OK) == -1) {
+                    ss_stderr_log("not access to 404 error file or not exists:%s\n", tmp->value);
+                    return -1;
+                }
+                ok[3] = tmp->value;
+                break;
+            case '0':
+                if (access(tmp->value, R_OK) == -1) {
+                    ss_stderr_log("not access to 500 error file or not exists:%s\n", tmp->value);
+                    return -1;
+                }
+                ok[4] = tmp->value;
+                break;
+            default:
+                ss_stderr_log("parse config must be error\n");
+                return -1;
+        }
+    }
+    //set the wwwpath
+    if (ok[0]) {
+        wwwpath.data = ok[0];
+        wwwpath.len  = strlen(ok[0]);
+    } else {
+        plen = strlen(workdir);
+        wlen = strlen(SS_DEFAULT_WWWPATH);
+        
+        wwwpath.data = (char *)malloc(plen + wlen + 1);
+        if (wwwpath.data == NULL) {
+            ss_stderr_log("malloc for wwwpath error\n");
+            return -1;
+        }
+        memcpy(wwwpath.data, workdir, plen);
+        memcpy(wwwpath.data + plen, "/"SS_DEFAULT_WWWPATH, wlen + 1);
+        wwwpath.len = plen + wlen + 1;
+    }
     return 0;
 }

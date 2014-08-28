@@ -19,5 +19,6 @@
 
 extern ss_log_t     errlog;
 extern ss_map_t     *fileconf;
+extern ss_str_t     wwwpath;
 
 #endif
