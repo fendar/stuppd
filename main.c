@@ -247,7 +247,7 @@ ss_check_config()
 //the fileconf only includes "wwwpath" "listen" "403" "404" "500",they can be identified by the third byte       
     while(tmp->next) {
         tmp = tmp->next;
-        switch (tmp->key['2']) {
+        switch (tmp->key[2]) {
             case 'w':
                 if (access(tmp->value, R_OK | X_OK) == -1) {
                     ss_stderr_log("not access to allow %s or not exists", tmp->value);
@@ -284,7 +284,7 @@ ss_check_config()
                 ok[4] = tmp->value;
                 break;
             default:
-                ss_stderr_log("parse config must be error\n");
+                ss_stderr_log("parse config must be error:%c\n", tmp->key[2]);
                 return -1;
         }
     }
