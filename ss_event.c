@@ -14,6 +14,7 @@ static  char                *ss_response_txt[] = {
                                 "200 OK",
                                 "403 Forbidden",
                                 "404 Not Found",
+                                "",//503
                                 "500 Internal Server Error",
                                 "400 Bad Request"
 };
@@ -728,6 +729,10 @@ ss_http_out_add_data(ss_http_request_t *r, ss_uint_t code)
     file    = &out->file;
     memset(ctline, (char)0, sizeof(ctline));
 
+    //add later ==========
+    if (status & SS_HTTP_CLIENT_ERROR)
+        r->res_type = 0;
+    //ad  later ===========
     headb->start = (char *)ss_alloc_from_pool(r->pool, SS_HTTP_OUT_BUFFER_SIZE);
     if (headb->start == NULL) {
         ss_write_log(r->log, "ss_alloc for head buffer error:%s", strerror(errno));
